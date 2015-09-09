@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Walk.ly</title>
+	<meta charset="utf-8" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- jQuery -->
+  <script src="/vendor/jquery/dist/jquery.min.js"></script>
+  <!-- Underscore -->
+  <script src="/vendor/underscore/underscore-min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+  <!-- ToEat.ly -->
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+  <script src="/static/js/app.js"></script>
+</head>
+<body>
+	<div>
+		<h1 id="title" class="text-center">Walk.ly</h1>
+	</div>
+	
+    <div class="row">
+    	<div class="col-xs-6 col-sm-4" ></div>
+    	<div class="col-xs-6 col-sm-4" ></div>
+    	<form method="POST" action="/api/users"  class="form-inline" id="sign-up-form">
+	      <input name="email" type="text" class="form-control" id="username" placeholder="sign-up-Username" required>
+	      <input name="password" type="password" class="form-control" id="password" placeholder="sign-up-Password" required>
+	      <button type="submit" class="btn btn-default">Sign Up</button>
+	    </form>
+	    <div class="col-xs-6 col-sm-4" ></div>
+	    <form method="POST" action="/api/sessions" class="form-inline" id="sign-in-form">
+	      <input name="email" type="text" class="form-control" id="username" placeholder="sign-in-Username" required>
+	      <input name="password" type="password" class="form-control" id="password" placeholder="sign-in-password" required>
+	      <button type="submit" class="btn btn-default">Sign In</button>
+	    </form>
+    </div>
+
+    <div>
+	    <form method="POST" action="/api/city"  class="form-inline" id="city-form">
+	      <input name="city" type="text" class="form-control" id="city" placeholder="enter your city">
+	      <button type="submit" class="btn btn-default">Search</button>
+	    </form>
+    </div>
+</body>
+</html>
