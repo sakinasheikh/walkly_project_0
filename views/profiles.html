@@ -19,12 +19,16 @@
 </head>
 <body>
 	<h1>Profile Page</h1>
-	Hello <%= user.email %>!
-
-<!-- have the server treat this as a delete request using query params & method-override (html forms can only technically submit get & post requests, so we have to simulate a delete) -->
-<form method="post" action="/logout?_method=DELETE">
-	<button type="submit">Logout</button>
-</form>
+  <div class="profile" id="img-box">
+    <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Elmo_from_Sesame_Street.gif">
+  </div>
+  <div id="profile-info" class="profile">
+  </div>
+  <div>
+    <form method="post" action="/logout?_method=DELETE">
+      <button type="submit">Logout</button>
+    </form>
+  </div>
 </body>
 </html>
 

@@ -17,32 +17,42 @@
   <link rel="stylesheet" type="text/css" href="/static/css/main.css">
   <script src="/static/js/app.js"></script>
 </head>
-<body>
-	<div>
-		<h1 id="title" class="text-center">Walk.ly</h1>
-	</div>
-	
-    <div class="row">
-    	<div class="col-xs-6 col-sm-4" ></div>
-    	<div class="col-xs-6 col-sm-4" ></div>
-    	<form method="POST" action="/api/users"  class="form-inline" id="sign-up-form">
-	      <input name="email" type="text" class="form-control" id="username" placeholder="sign-up-Username" required>
-	      <input name="password" type="password" class="form-control" id="password" placeholder="sign-up-Password" required>
-	      <button type="submit" class="btn btn-default">Sign Up</button>
-	    </form>
-	    <div class="col-xs-6 col-sm-4" ></div>
-	    <form method="POST" action="/api/sessions" class="form-inline" id="sign-in-form">
-	      <input name="email" type="text" class="form-control" id="username" placeholder="sign-in-Username" required>
-	      <input name="password" type="password" class="form-control" id="password" placeholder="sign-in-password" required>
-	      <button type="submit" class="btn btn-default">Sign In</button>
-	    </form>
-    </div>
+<body class="body">
+	<div class="container">
+		<div id="links">
+			<ul class="nav nav-pills nav-justified"> 
+				<li role="presentation"><a href="#">What?</a></li>
+				<li role="presentation"><a href="#">Jobs</a></li>
+			</ul>
+		</div>
+		<div>
+			<h1 id="title" class="text-center"><strong>Walk.ly</strong></h1>
+		</div>
+		<div class="row">
+	    	<div class=".col-xs-12">
+			    <form method="POST" action="/api/city"  class="form-inline" id="city-form">
+			      <input name="city" type="text" class="form-control" id="city" placeholder="Where do you want to walk?">
+			      <button type="submit" class="btn btn-default">Search</button>
+			    </form>
+			</div>
+	    </div>
+	    <div class="navbar navbar-fixed-bottom">
+	    	<div class=".col-xs-3" >
+		    	<form method="POST" action="/api/users"  class="form-inline" id="sign-up-form">
+			      <input name="email" type="text" class="form-control" id="username" placeholder="sign-up-Username" required>
+			      <input name="password" type="password" class="form-control" id="password" placeholder="sign-up-Password" required>
+			      <button type="submit" class="btn btn-default">Sign Up</button>
+			    </form>
+			</div>
+		    <div class="bott.col-xs-3" >
+			    <form method="POST" action="/api/sessions" class="form-inline" id="sign-in-form">
+			      <input name="email" type="text" class="form-control" id="username" placeholder="sign-in-Username" required>
+			      <input name="password" type="password" class="form-control" id="password" placeholder="sign-in-password" required>
+			      <button type="submit" class="btn btn-default">Sign In</button>
+			    </form>
+		    </div>
 
-    <div>
-	    <form method="POST" action="/api/city"  class="form-inline" id="city-form">
-	      <input name="city" type="text" class="form-control" id="city" placeholder="enter your city">
-	      <button type="submit" class="btn btn-default">Search</button>
-	    </form>
-    </div>
+	    </div>
+	</div>
 </body>
 </html>

@@ -42,7 +42,6 @@ app.use(function (req, res, next) {
 	//find the current user
 	req.currentUser = function (cb) {
 		db.User.findOne({_id: req.session.userId }, function (err, user) {
-				console.log("the user id is:" + req.session )
 			req.user = user; 
 			cb(null, user);
 		})
@@ -64,24 +63,16 @@ app.get("/", function (req, res) {
 })
 
 //profiles page
-app.get("/profile", function (req, res) {
-	console.log("the profiles route")
+app.get(["/profile", "/api/users/id"], function (req, res) {
 	req.currentUser(function (err, currentUser) {
 		console.log(currentUser)
-		if (currentUser === null) {
+		if (err || currentUser === null) {
 			res.redirect("/")
 		} else {
 		res.sendFile(views + "/profiles.html");
 		}
 	})
 })
-
-//maps page
-app.get("/maps", function (req, res) {
-	console.log("the maps route")
-	res.sendFile(views + "/maps.html");
-})
-
 
 //sign up
 app.post("/api/users", function createUser (req, res) {
@@ -99,7 +90,7 @@ app.post("/api/users", function createUser (req, res) {
 })
 
 //login
-app.post("/api/sessions", function signInUser (req, res) {
+app.post(["/login", "/api/sessions"], function signInUser (req, res) {
 	console.log("the login route")
 	db.User.authenticate(req.body.email, req.body.password, function (err, users) {
 		if(err) {
@@ -118,6 +109,13 @@ app.delete(["/sessions", "/logout"], function (req, res) {
 	req.logout();
 	res.redirect("/");
 }) 
+
+//maps page
+app.get("/maps", function (req, res) {
+	console.log("the maps route")
+	res.sendFile(views + "/maps.html");
+})
+
 
 //search for a city 
 app.post("/api/city", function handleCity (req, res) {
