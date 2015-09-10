@@ -25,7 +25,7 @@ db.User.find({}, function (err, users) {
 	console.log(users);
 })
 
-db.User.update
+db.User.update({id: _id: "55ef7a5a11270171cd62f753"}, )
 
 hardCodedImages = [{
 	pictureUrl: http://www.carolhighsmithamerica.com/data/photos/86_1coit_tower_in_san_francisco.jpg, 

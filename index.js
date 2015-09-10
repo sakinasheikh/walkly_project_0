@@ -61,26 +61,21 @@ app.get("/", function (req, res) {
 	res.sendFile(views + "/index.html");
 })
 
-//maps page api route
+//maps/profiles page HTML page route
 app.get("/maps", function (req, res) {
-	console.log("entering the maps route")
-	res.sendFile(views + "/maps.html");
-})
-//profiles page HTML page route
-app.get("/profile", function (req, res) {
 	req.currentUser(function (err, currentUser) {
 		if (err || currentUser === null) {
 			res.redirect("/")
 		} else {
-		console.log("the profiles HTML page was sent")
-		res.sendFile(views + "/profiles.html");
+		console.log("the maps HTML page was sent")
+		res.sendFile(views + "/maps.html");
 		}
 	})
 })
 
-//personal profiles route
+//maps/personal profiles route
 app.get("/api/users/:id", function (req, res) {
-	console.log("entering the personal profiles route")
+	console.log("entering the personal profiles/ maps route")
 	req.currentUser(function (err, currentUser) {
 		console.log("in personal profiles the current user is:" + currentUser)
 		if (err || currentUser === null) {
