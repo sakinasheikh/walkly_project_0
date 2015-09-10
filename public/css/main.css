@@ -1,13 +1,18 @@
 #title {
-	font-size: 1000%;
-}
-
-#title {
-	font-weight: 900;
+   z-index: 1; 
+   font-stretch: ultra-condensed;
+   height: 500px;
+	 font-weight: 900;
+   font-size: 275px;
+   font-family: arial black;
+   letter-spacing: -25px;
+   /*arial black, impact, rockwell extra bold*/
    color: white;  /* Fallback: assume this color ON TOP of image */
    background: url(http://highincomerealestate.com/wp-content/uploads/2014/09/SanFrancisco2.jpg) no-repeat;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
+   background-position: center bottom -10px;
+   /*background-size: 30% 20%*/ 
 }
 
 body {
@@ -19,4 +24,12 @@ body {
   width: 200px;
   height: 100px;
   margin: 1em;
+}
+
+#map {
+  width: 300px;
+  height: 300px;
+}
+.profile-bar {
+  display: inline-block;
 }

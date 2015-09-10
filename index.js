@@ -36,8 +36,7 @@ app.use(
 app.use(function (req, res, next) {
 	//login a user
 	req.login = function (user) {
-		req.session.userId = user._id;
-		console.log("the req.session.userid is", req.session.userId) 
+		req.session.userId = user._id; 
 	};
 	//find the current user
 	req.currentUser = function (cb) {
@@ -62,21 +61,41 @@ app.get("/", function (req, res) {
 	res.sendFile(views + "/index.html");
 })
 
-//profiles page
-app.get(["/profile", "/api/users/id"], function (req, res) {
+//maps page api route
+app.get("/maps", function (req, res) {
+	console.log("entering the maps route")
+	res.sendFile(views + "/maps.html");
+})
+//profiles page HTML page route
+app.get("/profile", function (req, res) {
 	req.currentUser(function (err, currentUser) {
-		console.log(currentUser)
 		if (err || currentUser === null) {
 			res.redirect("/")
 		} else {
+		console.log("the profiles HTML page was sent")
 		res.sendFile(views + "/profiles.html");
 		}
 	})
 })
 
-//sign up
+//personal profiles route
+app.get("/api/users/:id", function (req, res) {
+	console.log("entering the personal profiles route")
+	req.currentUser(function (err, currentUser) {
+		console.log("in personal profiles the current user is:" + currentUser)
+		if (err || currentUser === null) {
+			res.redirect("/")
+		} else {
+			//use the current user profile to dig into the db and pull out a schema 
+			// for that user and render it on the screen . 
+			res.send(currentUser);
+		}
+	});
+});
+
+//signup api route
 app.post("/api/users", function createUser (req, res) {
-	console.log("the signup route")
+	console.log("entering the signup route")
 	db.User.createSecure(req.body.email, req.body.password, function (err, users) {
 		if(err) {
 			console.log("error!", err);
@@ -84,37 +103,31 @@ app.post("/api/users", function createUser (req, res) {
 		} else {
 			console.log("success!");
 			req.login(users);
-			res.redirect("/profile");
+			res.redirect("/maps");
 		}
 	})
 })
 
-//login
+//login api route
 app.post(["/login", "/api/sessions"], function signInUser (req, res) {
-	console.log("the login route")
+	console.log("entering the login route")
 	db.User.authenticate(req.body.email, req.body.password, function (err, users) {
 		if(err) {
 			console.log(err);
 			res.redirect("/");
 		} else {
 			req.login(users);
-			res.redirect("/profile");
+			res.redirect("/maps");
 		}
 	})
 })
 
-//logout
+//logout api route
 app.delete(["/sessions", "/logout"], function (req, res) {
-	console.log("the delete route")
+	console.log("entering the delete route")
 	req.logout();
 	res.redirect("/");
 }) 
-
-//maps page
-app.get("/maps", function (req, res) {
-	console.log("the maps route")
-	res.sendFile(views + "/maps.html");
-})
 
 
 //search for a city 
