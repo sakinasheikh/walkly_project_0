@@ -6,4 +6,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
 
 
 module.exports.User = require("./users.js");
-module.exports.CoolSpot = require("./CoolSpots.js");
+module.exports.CoolSpot = require("./coolSpots.js");
