@@ -9,8 +9,15 @@ function getPersonalProfile () {
 		console.log(response_data);
 		// $("#profile-info").append(response_data);
 	});
-
 } 
+
+function renderUserName (response_data) {
+	var displayName = _.template($("#name-template").html());
+	var personsName = displayName(response_data); 
+	$("#name").append("personsName");
+}
+
+
 
 function manageBackground () {
 	var images = [
@@ -38,4 +45,5 @@ $(document).ready(function(){
 	getHomePage();
 	getPersonalProfile();
 	manageBackground();
+	renderUserName();
 })
