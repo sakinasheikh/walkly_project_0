@@ -30,16 +30,43 @@
 		  </div>
 		  <script>
       		L.mapbox.accessToken = 'pk.eyJ1IjoibWFyY2VsZGVnYXMiLCJhIjoiN2E3OTFkMjE1MzFhMzc3OWExZGM3ZGUxMDk1MGFmYmIifQ.zbaNkH09nY2KLMAx550arg';
-      		var map = L.mapbox.map('map', 'mapbox.streets')
-      		    .setView([37.7388, -122.4674], 9);
 
-          L.marker([37.7388, -122.4674], {
-            icon: L.mapbox.marker.icon({
-            'marker-size': 'large',
-            'marker-symbol': 'bus',
-            'marker-color': '#fa0'
-          })
-        }).addTo(map);
+      		var map = L.mapbox.map('map', 'mapbox.streets').setView([37.7388, -122.4674], 9);
+          var myLayer = L.mapbox.featureLayer().addTo(map);
+          
+          var geoJson = [{
+              type: 'Feature',
+              "geometry": { "type": "Point", "coordinates": [-122.4674, 37.7388]},
+              "properties": {
+                  "image": "http://www.carolhighsmithamerica.com/data/photos/86_1coit_tower_in_san_francisco.jpg",
+                  "url": "https://en.wikipedia.org/wiki/Washington,_D.C.",
+                  "marker-symbol": "star",
+                  "marker-color": "#ff8888",
+                  "marker-size": "small",
+                  "city": "Washington, D.C."
+              } 
+          }];
+
+      // Add custom popups to each using our custom feature properties
+      myLayer.on('layeradd', function(e) {
+          var marker = e.layer,
+              feature = marker.feature;
+
+          // Create custom popup content
+          var popupContent =  '<a target="_blank" class="popup" href="' + feature.properties.url + '">' +
+                                  '<img src="' + feature.properties.image + '" />' +
+                                  feature.properties.city +
+                              '</a>';
+
+          // http://leafletjs.com/reference.html#popup
+          marker.bindPopup(popupContent,{
+              closeButton: false,
+              minWidth: 320
+          });
+      });
+
+      // Add features to the map
+      myLayer.setGeoJSON(geoJson);
 	    </script>
     </body>
 </html>
