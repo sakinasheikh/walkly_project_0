@@ -1,13 +1,17 @@
 var mongoose = require("mongoose");
 
+
+
 var Schema = mongoose.Schema;
 bcrypt = require("bcrypt");
+
+
 var UserSchema = new Schema({
 	name: {type: String, required: true}, 
 	email: {type: String, required: true}, 
 	passwordDigest: {type: String, required: true}, 
 	createdAt: {type: Date, default: Date.now()},
-	coolSpots: []
+	coolSpots: [/*CoolSpotSchema*/]
 });
 
 //create a new user with a hashed password for signup
@@ -26,7 +30,7 @@ UserSchema.statics.createSecure = function (name, email, password, cb) {
 };
 
 //authenticate user
-UserSchema.statics.authenticate = function (name, email, password, cb) {
+UserSchema.statics.authenticate = function (email, password, cb) {
 	this.findOne({email: email}, function (err, user) {
 		if (user === null) {
 			cb("Can\'t find user with that email", null);
@@ -45,6 +49,7 @@ UserSchema.methods.checkPassword = function (password) {
 
 var User = mongoose.model("User", UserSchema);
 module.exports = User;
+
 
 
 

@@ -7,14 +7,15 @@ function getHomePage () {
 function getPersonalProfile () {
 	$.get("api/users/:id", function (response_data) {
 		console.log(response_data);
+		renderUserName(response_data);
 		// $("#profile-info").append(response_data);
 	});
 } 
 
-function renderUserName (response_data) {
+function renderUserName (res) {
 	var displayName = _.template($("#name-template").html());
-	var personsName = displayName(response_data); 
-	$("#name").append("personsName");
+	var personsName = displayName(res); 
+	$("#name").append(personsName);
 }
 
 
@@ -45,5 +46,8 @@ $(document).ready(function(){
 	getHomePage();
 	getPersonalProfile();
 	manageBackground();
-	renderUserName();
+	
+	// $('#myModal').on('shown.bs.modal', function () {
+ //  $('#myInput').focus()
+// })
 })
