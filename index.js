@@ -88,6 +88,13 @@ app.get("/api/users/:id", function (req, res) {
 	});
 });
 
+
+app.get("/api/coolSpots", function (req, res) {
+	db.CoolSpot.find({}, function (err, spots) {
+		res.send(spots);
+	})
+})
+
 //signup api route
 app.post("/api/users", function createUser (req, res) {
 	console.log("entering the signup route")

@@ -1,3 +1,9 @@
+.top-tabs {
+  color: yellow;
+  font-size: 20px;
+  font-family: optima;
+}
+
 #title {
    z-index: 1; 
    font-stretch: ultra-condensed;
@@ -17,6 +23,11 @@
 
 .index {
 	background-color: cadetblue;
+ /* background-image:
+    linear-gradient(
+      to left, 
+      cadetblue, grey*/
+    );
 }
 
 .profile {

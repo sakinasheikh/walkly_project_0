@@ -1,0 +1,17 @@
+TODO:
+
+	
+	2. make a button on the popup window to save 'at least' the location name
+		a. found the button 
+		b. On click(button) push the name of the coolspot into the coolspotsarray (where is cool array?)
+
+
+
+	3. store that location into coolSpot db for a particular user
+	4. display on your map page somewhere the saved spots
+	5. if you have extra time, make an option to delete your account.
+
+
+DONE:
+	0. pump up your geoJson list.
+	1. set up your db to have coolspotSchema
