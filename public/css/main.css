@@ -4,12 +4,26 @@
   font-family: optima;
 }
 
+#sign-up {
+    background: none;
+    padding: 12px 22px;
+}
+
+#sign-up {
+    border: 2px solid yellow;
+    color: yellow;
+}
+
+#shadow {
+  z-index: 2;
+}
+
 #title {
    z-index: 1; 
    font-stretch: ultra-condensed;
-   height: 500px;
-	 font-weight: 900;
-   font-size: 275px;
+   height: 400px;
+	 font-weight: 1000;
+   font-size: 300px;
    font-family: arial black;
    letter-spacing: -25px;
    /*arial black, impact, rockwell extra bold*/
@@ -22,11 +36,11 @@
 }
 
 .index {
-	background-color: cadetblue;
- /* background-image:
+	/*background-color: cadetblue;*/
+  background-image:
     linear-gradient(
       to left, 
-      cadetblue, grey*/
+      cadetblue, #004C4C
     );
 }
 

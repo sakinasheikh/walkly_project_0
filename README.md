@@ -9,6 +9,6 @@ The ACTUAL functionality of the app is as follows:
 6. The user can logout!
 
 Next sprint:
-1. Get the save button to work for favorite places
-2. Try incorporating a different api to populate the geoJSON data.  
+1. Try incorporating a different api to populate the geoJSON data. 
+2. Get the save button to work for favorite places
 3. Get the modals to work on the front page. 

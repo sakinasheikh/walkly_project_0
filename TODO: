@@ -1,6 +1,6 @@
 TODO:
 
-	
+	Backend
 	2. make a button on the popup window to save 'at least' the location name
 		a. found the button 
 		b. On click(button) push the name of the coolspot into the coolspotsarray (where is cool array?)

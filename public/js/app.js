@@ -33,16 +33,16 @@ function manageBackground () {
 
 	var i = 0;
 	setInterval(function(){
-		console.log("hit interval");
 		if (i === images.length - 1) {
 			i = 0;
 		}
 		var url = 'url( ' + images[i] +')';
 		console.log(url);
-		$("#title").css("background-image", url);
+		$("#title").css("background-image", 
+			url);
 		$("#title").css("background-repeat", 'no-repeat');
 		i++;
-	}, 750);
+	}, 600);
 }
 
 

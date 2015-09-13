@@ -100,7 +100,7 @@ $(document).ready(function(){
           var myButton = '<button onclick="savePlace()">Save to Favorites</button>';
           // Create custom popup content
           var popupContent =  '<a target="_blank" class="popup" href="' + feature.properties.url + '">' +
-                                  '<img src="' + feature.properties.image + '" />' +
+                                  '<img class="img" src="' + feature.properties.image + '" />' +
                                   feature.properties.city +
                               '</a>' 
                               // create a link to save this location 

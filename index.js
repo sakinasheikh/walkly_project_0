@@ -61,7 +61,7 @@ app.get("/", function (req, res) {
 	res.sendFile(views + "/index.html");
 })
 
-//maps/profiles page HTML page route
+//maps page HTML page route
 app.get("/maps", function (req, res) {
 	req.currentUser(function (err, currentUser) {
 		if (err || currentUser === null) {
@@ -73,7 +73,7 @@ app.get("/maps", function (req, res) {
 	})
 })
 
-//maps/personal profiles route
+//maps/personal route
 app.get("/api/users/:id", function (req, res) {
 	console.log("entering the personal profiles/ maps route")
 	req.currentUser(function (err, currentUser) {
@@ -87,6 +87,19 @@ app.get("/api/users/:id", function (req, res) {
 		}
 	});
 });
+
+
+//maps page HTML page route
+app.get("/profiles", function (req, res) {
+	req.currentUser(function (err, currentUser) {
+		if (err || currentUser === null) {
+			res.redirect("/")
+		} else {
+		console.log("the maps profiles page was sent")
+		res.sendFile(views + "/profiles.html");
+		}
+	})
+})
 
 
 app.get("/api/coolSpots", function (req, res) {
