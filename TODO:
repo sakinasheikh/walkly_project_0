@@ -8,8 +8,27 @@ TODO:
 
 
 	3. store that location into coolSpot db for a particular user
+								req.currentUser(function(err, user) {
+					    user.ideas.push(req.body.idea);
+					    user.save(function (err) {
+					      if (err) { return console.log(err); }
+					      console.log(req.body.idea , " has been added for user " + user.email);
+					    });
+					  });
+					      res.redirect('/profile');
+
+
+					});
 	4. display on your map page somewhere the saved spots
 	5. if you have extra time, make an option to delete your account.
+	6. is there a meetup this day for walking?
+	7. INclude weather and date api. 
+
+
+
+	Frontend
+	1. move shadow up
+	2. you are signed in as Marcel.degas@gmail.com (logout?)
 
 
 DONE:
