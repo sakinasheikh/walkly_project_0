@@ -138,11 +138,16 @@ app.post(["/login", "/api/sessions"], function signInUser (req, res) {
 })
 
 //logout api route
-app.delete(["/sessions", "/logout"], function (req, res) {
+app.post(["/sessions", "/logout"], function (req, res) {
 	console.log("entering the delete route")
 	req.logout();
 	res.redirect("/");
 }) 
+// app.delete(["/sessions", "/logout"], function (req, res) {
+// 	console.log("entering the delete route")
+// 	req.logout();
+// 	res.redirect("/");
+// }) 
 
 
 //search for a city 
